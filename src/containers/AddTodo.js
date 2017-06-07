@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
 
@@ -18,15 +18,27 @@ class AddTodo extends Component {
   }
 
   render () {
+    const { styles, isFetching } = this.props
+
+    if (isFetching) {
+      return <Text>Loading...</Text>
+    }
+
     return (
-      <View>
+      <View style={ styles.form }>
         <TextInput
           onChangeText={ text => this.setState({ text }) }
           value={ this.state.text }
+          underlineColorAndroid='transparent'
+          placeholder='new todo...'
+          style={ styles.input }
         />
 
-        <TouchableOpacity onPress={ () => this._addTodo() }>
-          <Text>
+        <TouchableOpacity
+          onPress={ () => this._addTodo() }
+          style={ styles.button }
+        >
+          <Text style={ styles.buttonTitle }>
             Add Todo
           </Text>
         </TouchableOpacity>
@@ -35,4 +47,9 @@ class AddTodo extends Component {
   }
 }
 
-export default connect()(AddTodo)
+const mapStateToProps = (state, ownProps) => ({
+  styles: StyleSheet.create(state.styleSheet.styles.addTodoForm),
+  isFetching: state.styleSheet.isFetching
+})
+
+export default connect(mapStateToProps)(AddTodo)

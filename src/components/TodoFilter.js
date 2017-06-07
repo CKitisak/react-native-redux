@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
+import { connect } from 'react-redux'
+
 import FilterLink from '../containers/FilterLink'
 
-class Footer extends Component {
+class TodoFilter extends Component {
   render () {
+    const { styles, isFetching } = this.props
+
     return (
-      <View>
+      <View style={ styles.filterBox }>
         <Text>
           Show:
         </Text>
@@ -23,4 +27,8 @@ class Footer extends Component {
   }
 }
 
-export default Footer
+const mapStateToProps = (state, ownProps) => ({
+  styles: StyleSheet.create(state.styleSheet.styles.filterForm)
+})
+
+export default connect(mapStateToProps)(TodoFilter)
