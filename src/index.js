@@ -4,9 +4,13 @@ import { applyMiddleware, createStore } from 'redux'
 import logger from 'redux-logger'
 
 import AppReducers from './reducers'
-import AppNavigationState from './components/AppNavigationState'
+import AppNavigationState from './containers/AppNavigationState'
 
 const store = createStore(AppReducers, applyMiddleware(logger))
+
+store.dispatch({
+  type: 'GET_BACKGROUND_IMAGE'
+})
 
 const Root = () => (
   <Provider store={ store }>

@@ -1,16 +1,20 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
+import AppBackground from '../containers/AppBackground'
+import AppBackgroundSetting from '../containers/AppBackgroundSetting'
+
 import styles from '../styles'
 
 // Component
 // ___________________________________
 const ProfileScreen = () => (
-  <View style={ styles.container }>
+  <AppBackground>
     <Text style={ styles.titleText }>
-      Profile Screen
+      First name and Last Name
     </Text>
-  </View>
+    <AppBackgroundSetting />
+  </AppBackground>
 )
 
 // Screen Navigation Options

@@ -1,17 +1,18 @@
 import React from 'react'
 import { View } from 'react-native'
 
-import styles from '../styles'
-
-import AuthButton from './AuthButton'
 import LoginStatusMessage from './LoginStatusMessage'
+import AppBackground from '../containers/AppBackground'
+import AuthButton from '../containers/AuthButton'
 
 // Component
 // ___________________________________
 const MainScreen = () => (
-  <View style={ styles.container }>
-    <LoginStatusMessage />
-  </View>
+  <AppBackground>
+    <View style={{ flex:1, justifyContent: 'center' }}>
+      <LoginStatusMessage />
+    </View>
+  </AppBackground>
 )
 
 // Screen Navigation Options
