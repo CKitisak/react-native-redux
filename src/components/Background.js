@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { Image, StyleSheet } from 'react-native'
+import { Image, StyleSheet, Text } from 'react-native'
 
 const styles = StyleSheet.create({
   backgroundImage: {
@@ -11,19 +11,25 @@ const styles = StyleSheet.create({
 
 // Component
 // ___________________________________
-const Background = ({ bgImg, children }) => (
-  <Image
-    style={ styles.backgroundImage }
-    source={{ uri: bgImg.url }}
-  >
-    { children }
-  </Image>
-)
+const Background = ({ bgImg, isFetching, children }) => {
+  if (isFetching) {
+    return <Text>Loading...</Text>
+  }
+  return (
+    <Image
+      style={ styles.backgroundImage }
+      source={{ uri: bgImg }}
+    >
+      { children }
+    </Image>
+  )
+}
 
 // Defined type of props
 // ___________________________________
 Background.propTypes = {
-  bgImg: PropTypes.object.isRequired
+  bgImg: PropTypes.string.isRequired,
+  isFetching: PropTypes.bool.isRequired,
 }
 
 export default Background

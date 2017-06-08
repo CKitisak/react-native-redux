@@ -5,7 +5,8 @@ import Background from '../components/Background'
 // Pass state value into props
 // ___________________________________
 const mapStateToProps = (state) => ({
-  bgImg: state.backgroundImage
+  bgImg: state.backgroundImage.url,
+  isFetching: state.backgroundImage.isFetching
 })
 
 // Connects component to store

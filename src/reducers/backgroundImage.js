@@ -1,12 +1,27 @@
-const initialState = { url: 'https://unsplash.it/500?image=52' }
+import {
+  GET_BACKGROUND_IAMGE,
+  GET_BACKGROUND_IMAGE_DONE,
+  DELETE_BACKGROUND_IMAGE
+} from '../actions/backgroundImage'
+
+const initialState = {
+  url: '',
+  isFetching: false
+}
 
 const backgroundImage = (state = initialState, action) => {
   switch (action.type) {
-    case 'CHANGE_BACKGROUND_IMAGE':
+    case GET_BACKGROUND_IAMGE:
       return {
-        url: action.url
+        ...state,
+        isFetching: true
       }
-    case 'DELETE_BACKGROUND_IMAGE':
+    case GET_BACKGROUND_IMAGE_DONE:
+      return {
+        url: action.url,
+        isFetching: false
+      }
+    case DELETE_BACKGROUND_IMAGE:
       return initialState
     default:
       return state

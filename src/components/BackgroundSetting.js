@@ -14,7 +14,7 @@ const BackgroundSetting = ({ changeBgImg, deleteBgImg }) => (
   <View style={ styles.buttonGroup }>
     <Button
       title='Change Background'
-      onPress={() => changeBgImg() }
+      onPress={() => changeBgImg('https://unsplash.it/500?random=1&t=' + Date.now()) }
     />
     <Button
       title='Dlete Background'

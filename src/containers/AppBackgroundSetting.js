@@ -1,13 +1,13 @@
 import { connect } from 'react-redux'
-import { changeBgImg, deleteBgImg } from '../actions/backgroundImage'
+import { checkBgImg, deleteBgImg } from '../actions/backgroundImage'
 
 import BackgroundSetting from '../components/BackgroundSetting'
 
 // Pass dispatch actions into props
 // ___________________________________
 const mapDispatchToProps = (dispatch) => ({
-  changeBgImg: () =>
-    dispatch(changeBgImg()),
+  changeBgImg: (url) =>
+    dispatch(checkBgImg(url)),
   deleteBgImg: () =>
     dispatch(deleteBgImg())
 })
