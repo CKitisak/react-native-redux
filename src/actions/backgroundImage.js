@@ -11,7 +11,6 @@ export const getBgImg = () => ({
 })
 
 export const getBgImgDone = (url) => {
-  console.log(url)
   AsyncStorage.setItem(storageKey, url)
   return {
     type: GET_BACKGROUND_IMAGE_DONE,
@@ -27,13 +26,10 @@ export const deleteBgImg = () => {
 }
 
 export const checkBgImg = (url) => dispatch => {
-  console.log('checkBgImage')
   dispatch(getBgImg())
   if (!url) {
     // get current background image url from local storage
     return AsyncStorage.getItem(storageKey, (error, result) => {
-      console.log(error)
-      console.log(result)
       if (error || !result) {
         // set default background image url
         result = 'https://unsplash.it/500?image=52'
