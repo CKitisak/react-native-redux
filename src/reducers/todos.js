@@ -1,16 +1,35 @@
+import realm from '../models'
+
 const todo = (state = {}, action = {}) => {
   switch (action.type) {
     case 'ADD_TODO':
-      return {
+      let todoItem = {
         id: action.id,
-        text: action.text,
+        title: action.title,
+        createdDate: action.createdDate,
         done: false
       }
+      // keep todo in realmDB
+      realm.write(() => {
+        realm.create('Todo', todoItem)
+      })
+
+      return todoItem
     case 'TOGGLE_TODO':
       if (state.id !== action.id) return state
-      return Object.assign({}, state, {
-        done: !state.done
+
+      // Update todo done by id
+      let done = !state.done
+      realm.write(() => {
+        realm.create('Todo', {
+          id: action.id,
+          done
+        }, true)
       })
+      return {
+        ...state,
+        done
+      }
     default:
       return state
   }
@@ -18,6 +37,8 @@ const todo = (state = {}, action = {}) => {
 
 const todos = (state = [], action = {}) => {
   switch (action.type) {
+    case 'GET_TODO':
+      return action.todo
     case 'ADD_TODO':
       return [
         ...state,

@@ -1,17 +1,21 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { Text, View } from 'react-native'
 import Todo from './Todo'
 
 class TodoList extends Component {
   render () {
-    const { todos, onTodoPress } = this.props
-
+    const { todos, onTodoPress, styles } = this.props
+    console.log(todos)
+    if (todos.length == 0) {
+      return <Text>Todo list is empty</Text>
+    }
     return (
-      <View>
+      <View style={ styles.todoListBox }>
         {todos.map(todo => (
           <Todo
             key={ todo.id }
             { ...todo }
+            styles={ styles }
             onPress={ ()=> onTodoPress(todo.id) }
           />
         ))}

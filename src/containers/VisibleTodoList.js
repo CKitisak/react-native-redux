@@ -7,14 +7,17 @@ const getVisibleTodos = (todos, filter) => {
     case 'SHOW_ALL':
       return todos
     case 'SHOW_DONE':
-      return todos.filter(todo => todo.done)
+      // filter by realm api
+      return todos.filtered('done = true')
     case 'SHOW_ACTIVE':
-      return todos.filter(todo => !todo.done)
+      // filter by realm api
+      return todos.filtered('done = false')
   }
 }
 
 const mapStateToProps = (state) => ({
-  todos: getVisibleTodos(state.todos, state.visibilityFilter)
+  todos: getVisibleTodos(state.todos, state.visibilityFilter),
+  styles: state.appStyle.todoList
 })
 
 const mapDispatchToProps = (dispatch) => ({

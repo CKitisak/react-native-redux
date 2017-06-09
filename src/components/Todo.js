@@ -3,13 +3,14 @@ import { Text } from 'react-native'
 
 class Todo extends Component {
   render() {
-    const { onPress, done, text } = this.props
+    const { onPress, done, title, styles } = this.props
 
     return (
       <Text
         style={{ textDecorationLine: done ? 'line-through' : 'none' }}
-        onPress={ onPress }>
-        {text}
+        onPress={ onPress }
+      >
+        { title }
       </Text>
     )
   }

@@ -1,9 +1,11 @@
 import { connect } from 'react-redux'
 import { setVisibilityFilter } from '../actions'
+import { StyleSheet } from 'react-native'
 import Link from '../components/Link'
 
 const mapStateToProps = (state, ownProps) => ({
-  active: ownProps.filter === state.visibilityFilter
+  active: ownProps.filter === state.visibilityFilter,
+  styles: StyleSheet.create(state.appStyle.filterForm),
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

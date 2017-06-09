@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { Text, TouchableOpacity } from 'react-native'
 
 class Link extends Component {
   render () {
-    const { active, children, onPress } = this.props
+    const { active, children, onPress, styles } = this.props
 
     if (active) {
       return (
@@ -22,15 +22,5 @@ class Link extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  link: {
-    color: 'blue'
-  },
-  active: {
-    color: 'gray',
-    fontWeight: 'bold'
-  }
-})
 
 export default Link
