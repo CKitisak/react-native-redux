@@ -7,7 +7,7 @@ class Todo extends Component {
 
     return (
       <Text
-        style={{ textDecorationLine: done ? 'line-through' : 'none' }}
+        style={{ textDecorationLine: done ? 'line-through' : 'none', ...styles.todoText }}
         onPress={ onPress }
       >
         { title }

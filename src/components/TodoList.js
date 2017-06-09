@@ -5,7 +5,6 @@ import Todo from './Todo'
 class TodoList extends Component {
   render () {
     const { todos, onTodoPress, styles } = this.props
-    console.log(todos)
     if (todos.length == 0) {
       return <Text>Todo list is empty</Text>
     }
