@@ -1,35 +1,29 @@
 import realm from '../models'
 
-const todo = (state = {}, action = {}) => {
+const todo = (state = {}, action) => {
+  let todoItem
   switch (action.type) {
     case 'ADD_TODO':
-      let todoItem = {
-        id: action.id,
-        title: action.title,
-        createdDate: action.createdDate,
-        done: false
-      }
       // keep todo in realmDB
       realm.write(() => {
-        realm.create('Todo', todoItem)
+        todoItem = realm.create('Todo', {
+          id: action.id,
+          title: action.title,
+          createdDate: action.createdDate,
+          done: false
+        })
       })
-
       return todoItem
     case 'TOGGLE_TODO':
       if (state.id !== action.id) return state
-
       // Update todo done by id
-      let done = !state.done
       realm.write(() => {
-        realm.create('Todo', {
+        todoItem = realm.create('Todo', {
           id: action.id,
-          done
+          done: !state.done
         }, true)
       })
-      return {
-        ...state,
-        done
-      }
+      return todoItem
     default:
       return state
   }
