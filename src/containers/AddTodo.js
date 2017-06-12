@@ -18,11 +18,7 @@ class AddTodo extends Component {
   }
 
   render () {
-    const { styles, isFetching } = this.props
-
-    if (isFetching) {
-      return <Text>Loading...</Text>
-    }
+    const { styles } = this.props
 
     return (
       <View style={ styles.form }>
@@ -48,8 +44,7 @@ class AddTodo extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  styles: StyleSheet.create(state.styleSheet.styles.addTodoForm),
-  isFetching: state.styleSheet.isFetching
+  styles: StyleSheet.create(state.styleSheet.styles.addTodoForm)
 })
 
 export default connect(mapStateToProps)(AddTodo)
