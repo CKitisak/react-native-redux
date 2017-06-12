@@ -17,7 +17,7 @@ export const getStyleSheetFail = () => ({
 
 export const fetchStyleSheet = () => dispatch => {
   dispatch(getStyleSheet())
-  return fetch('http://192.168.1.104:3000/styles.json')
+  return fetch('http://192.168.1.2:3000/styles.json')
     .then(response => response.json())
     .then(json => dispatch(getStyleSheetSuccess(json)))
 }
