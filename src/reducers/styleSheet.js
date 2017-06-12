@@ -1,12 +1,12 @@
 import {
   GET_STYLE_SHEET,
   GET_STYLE_SHEET_SUCCESS,
-  GET_STYLE_SHEET_FAIL
+  INVALIDATE_STYLE_SHEET
 } from '../actions/styleSheet'
 
 const initialState = {
   isFetching: false,
-  didFail: false,
+  didInvalidate: false,
   styles: {}
 }
 
@@ -16,19 +16,19 @@ const styleSheet = (state = initialState, action) => {
       return {
         ...state,
         isFetching: true,
-        didFail: false
+        didInvalidate: false
       }
     case GET_STYLE_SHEET_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        didFail: false,
+        didInvalidate: false,
         styles: action.styles
       }
-    case GET_STYLE_SHEET_FAIL:
+    case INVALIDATE_STYLE_SHEET:
       return {
         ...state,
-        didFail: true
+        didInvalidate: true
       }
     default:
       return state
