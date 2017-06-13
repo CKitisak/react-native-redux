@@ -17,28 +17,15 @@ export const switchLanguage = (language) => (dispatch, getState) => {
   }
 }
 
-const fakeDatabase = {
-  en: {
-    _name: 'English',
-    greeting: 'Hi!',
-    welcome: 'Welcome'
-  },
-  th: {
-    _name: 'ไทย',
-    greeting: 'สวัสดี!',
-    welcome: 'ยินดีต้อนรับ'
-  }
-}
-
-const delay = (ms) => new Promise(resolve => setTimeout(resolve(), ms))
-
 export const fetchLanguages = () => (dispatch) => {
   dispatch({ type: types.FETCH_LANGUAGES })
-  delay(1000).then(() => {
-    I18n.translations = fakeDatabase
-    dispatch({
-      type: types.FETCH_LANGUAGES_DONE,
-      languages: fakeDatabase
-    })
-  })
+  return fetch('http://192.168.1.2:3000/languages')
+          .then(response => response.json())
+          .then(json => {
+            I18n.translations = json
+            dispatch({
+              type: types.FETCH_LANGUAGES_DONE,
+              languages: json
+            })
+          })
 }
