@@ -9,8 +9,9 @@ const LanguagePicker = ({ currentLanguage, isLoading, onSelectedLanguage }) => {
   if (isLoading) {
     return <Text>fetching languages...</Text>
   }
-  console.log(I18n.translations)
-  let languageItems = Object.keys(I18n.translations).map((language, index) => (
+
+  let languages = Object.keys(I18n.translations)
+  let languageItems = languages.map((language, index) => (
     <Picker.Item
       key={ index }
       value={ language }
