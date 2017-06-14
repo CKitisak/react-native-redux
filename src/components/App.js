@@ -1,7 +1,6 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, Image } from 'react-native'
 import { connect } from 'react-redux'
-
 import TextTranslate from './TextTranslate'
 import LanguagePicker from '../containers/LanguagePicker'
 
@@ -18,7 +17,13 @@ const App = ({ currentLanguage, deviceLocale, isLoading }) => {
         deviceLocale => { deviceLocale }
       </Text>
       <TextTranslate text='greeting' style={{ color: 'blue' }} />
-      <TextTranslate text='text' />
+      <View style={{ flexDirection: 'row' }}>
+        <TextTranslate text='text' style={{ flex: 1 }} />
+        <Image
+          style={{width: 50, height: 50}}
+          source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
+        />
+      </View>
       <LanguagePicker />
     </View>
   )

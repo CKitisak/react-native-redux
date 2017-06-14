@@ -3,6 +3,7 @@ package com.reactnativeredux;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.facebook.react.modules.i18nmanager.I18nUtil;
 import com.i18n.reactnativei18n.ReactNativeI18n;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -37,6 +38,10 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
+    // i18n RTL support
+    I18nUtil sharedI18nUtilInstance = I18nUtil.getInstance();
+    sharedI18nUtilInstance.allowRTL(getApplicationContext(), true);
+
     SoLoader.init(this, /* native exopackage */ false);
   }
 }
