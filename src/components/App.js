@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, View } from 'react-native'
 import { connect } from 'react-redux'
 
-import { translate } from '../i18n'
+import TextTranslate from './TextTranslate'
 import LanguagePicker from '../containers/LanguagePicker'
 
 const App = ({ currentLanguage, deviceLocale, isLoading }) => {
@@ -17,12 +17,8 @@ const App = ({ currentLanguage, deviceLocale, isLoading }) => {
       <Text>
         deviceLocale => { deviceLocale }
       </Text>
-      <Text>
-        { translate('greeting') }
-      </Text>
-      <Text>
-        { translate('welcome') }
-      </Text>
+      <TextTranslate text='greeting' style={{ color: 'blue' }} />
+      <TextTranslate text='text' />
       <LanguagePicker />
     </View>
   )
