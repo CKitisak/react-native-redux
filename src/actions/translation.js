@@ -20,7 +20,11 @@ export const switchLanguage = (language) => (dispatch, getState) => {
 export const fetchLanguages = () => (dispatch) => {
   dispatch({ type: types.FETCH_LANGUAGES })
   return fetch('http://192.168.1.2:3000/languages')
-          .then(response => response.json())
+          .then(response => {
+            // solve chrome debugging hangs sometimes
+            setTimeout(() => null, 0)
+            return response.json()
+          })
           .then(json => {
             I18n.translations = json
             dispatch({
