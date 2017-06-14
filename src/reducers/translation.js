@@ -16,13 +16,15 @@ const translation = (state = {}, action) => {
     case types.SWITCH_LANGUAGE:
       return {
         ...state,
-        currentLanguage: action.language
+        currentLanguage: action.language,
+        isRTL: action.isRTL
       }
     case types.DETECH_LANGUAGE:
       return {
         ...state,
         deviceLocale: action.language,
-        currentLanguage: state.currentLanguage ? state.currentLanguage : action.language
+        currentLanguage: state.currentLanguage ? state.currentLanguage : action.language,
+        isRTL: action.isRTL
       }
     default:
       return state
