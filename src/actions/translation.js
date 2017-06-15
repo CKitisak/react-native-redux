@@ -31,13 +31,19 @@ export const detectLanguage = () => {
   }
 }
 
+export const switchLanguage = (language) => ({
+  type: types.SWITCH_LANGUAGE,
+  language,
+  isRTL: isRTLLanguage(language)
+})
+
 export const fetchTranslation = () => ({
   type: types.FETCH_TRANSLATION
 })
 
-export const fetchTranslationSuccess = (translation) => ({
+export const fetchTranslationSuccess = (languages) => ({
   type: types.FETCH_TRANSLATION_SUCCESS,
-  translation
+  languages
 })
 
 export const fetchTranslationError = (message) => ({

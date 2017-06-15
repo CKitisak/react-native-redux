@@ -6,4 +6,5 @@ import * as translationActions from './translation'
 export default function* rootSaga() {
   yield takeLatest(types.DETECH_LANGUAGE, translationActions.detectLanguage)
   yield takeLatest(types.FETCH_TRANSLATION, translationActions.fetchTranslation)
+  yield takeLatest(types.SWITCH_LANGUAGE, translationActions.updateAppearance)
 }

@@ -8,6 +8,12 @@ const translation = (state = {}, action) => {
         deviceLocale: action.language,
         isRTL: action.isRTL
       }
+    case types.SWITCH_LANGUAGE:
+      return {
+        ...state,
+        currentLanguage: action.language,
+        isRTL: action.isRTL
+      }
     case types.FETCH_TRANSLATION:
       return {
         ...state,
@@ -18,7 +24,7 @@ const translation = (state = {}, action) => {
         ...state,
         isFetching: false,
         isError: false,
-        translation: action.translation
+        languages: action.languages
       }
     case types.FETCH_TRANSLATION_ERROR:
       return {

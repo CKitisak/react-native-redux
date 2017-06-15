@@ -1,9 +1,14 @@
-import { applyMiddleware, createStore } from 'redux'
+import { applyMiddleware, createStore, compose } from 'redux'
 import logger from 'redux-logger'
 import createSagaMiddleware from 'redux-saga'
+import { persistStore, autoRehydrate } from 'redux-persist'
+import { AsyncStorage } from 'react-native'
 
+import { detectLanguage, fetchTranslation } from './actions/translation'
 import reducers from './reducers'
 import rootSaga from './sagas'
+
+// AsyncStorage.clear()
 
 const configureStore = () => {
   const middlewares = []
@@ -20,10 +25,22 @@ const configureStore = () => {
   // ~~~ REDUX STORE
   const store = createStore(
     reducers,
-    applyMiddleware(...middlewares),
+    compose(
+      applyMiddleware(...middlewares),
+      autoRehydrate()
+    )
   )
 
-  // ~~~ START SAGA
+  // ~~~ PERSIST START
+  const persistConfig = {
+    storage: AsyncStorage
+  }
+  persistStore(store, persistConfig, () => {
+    store.dispatch(fetchTranslation())
+    store.dispatch(detectLanguage())
+  })
+
+  // ~~~ SAGA START
   saga.run(rootSaga)
 
   return store
