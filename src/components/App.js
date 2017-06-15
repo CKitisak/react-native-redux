@@ -14,7 +14,9 @@ class App extends Component {
 
   componentDidUpdate (prevProps) {
     if (this.props.isRTL !== prevProps.isRTL) {
-      this.props.dispatch(switchLayout())
+      // this.props.dispatch(
+        switchLayout()
+        // )
     }
   }
 

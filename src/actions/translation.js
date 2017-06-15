@@ -35,15 +35,15 @@ const needSwitchLanguage = (state, language) => {
   }
 }
 
-const needSwitchLayout = (state) => {
-  const { isRTL } = state.translation
-  console.log(I18nManager.isRTL, isRTL)
-  if (I18nManager.isRTL !== isRTL) {
-    return true
-  } else {
-    return false
-  }
-}
+// const needSwitchLayout = (state) => {
+//   const { isRTL } = state.translation
+//   console.log(I18nManager.isRTL, isRTL)
+//   if (I18nManager.isRTL !== isRTL) {
+//     return true
+//   } else {
+//     return false
+//   }
+// }
 
 
 export const detectLanguage = () => {
@@ -71,12 +71,13 @@ export const switchLanguage = (language) => (dispatch, getState) => {
   }
 }
 
-export const switchLayout = () => (dispatch, getState) => {
-  if (needSwitchLayout(getState())) {
+export const switchLayout = () => {
+// (dispatch, getState) => {
+  // if (needSwitchLayout(getState())) {
     setTimeout(() => {
       RNRestart.Restart()
     }, 1000)
-  }
+  // }
 }
 
 export const fetchLanguages = () => (dispatch) => {
