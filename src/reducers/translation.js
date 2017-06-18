@@ -1,18 +1,33 @@
 import * as types from '../actions/actionTypes'
 
-const translation = (state = {}, action) => {
+const initialState = {
+  isRTL: false,
+  isFetching: false,
+  isError: false,
+  errorMessage: null,
+  language: 'en',
+  languages: {}
+}
+
+const translation = (state = initialState, action) => {
   switch (action.type) {
     case types.DETECH_LANGUAGE:
       return {
         ...state,
-        deviceLocale: action.language,
-        isRTL: action.isRTL
+        deviceLanguage: action.language,
+        isRTL:  action.isRTL
       }
     case types.SWITCH_LANGUAGE:
       return {
         ...state,
-        currentLanguage: action.language,
-        isRTL: action.isRTL
+        language: action.language,
+        isUpdating: true
+      }
+    case types.SWITCH_LANGUAGE_SUCCESS:
+      return {
+        ...state,
+        isRTL: action.isRTL,
+        isUpdating: false
       }
     case types.FETCH_TRANSLATION:
       return {
@@ -24,6 +39,7 @@ const translation = (state = {}, action) => {
         ...state,
         isFetching: false,
         isError: false,
+        errorMessage: null,
         languages: action.languages
       }
     case types.FETCH_TRANSLATION_ERROR:
@@ -31,7 +47,7 @@ const translation = (state = {}, action) => {
         ...state,
         isFetching: false,
         isError: true,
-        message: action.message
+        errorMessage: action.message
       }
     default:
       return state

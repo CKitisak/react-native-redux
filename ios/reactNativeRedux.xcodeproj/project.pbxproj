@@ -40,6 +40,8 @@
 		E891D6AA5AC94F229B8B7E62 /* libcxxreact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F60B7C547D4BCF925174C2 /* libcxxreact.a */; };
 		7C0CAA7FE2584EA9A74924F9 /* libjschelpers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C926987D6F4ED291746C03 /* libjschelpers.a */; };
 		C93B894D1EDE48BDA84D32FE /* libRCTRestart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E62D1F29F54487B91841C4A /* libRCTRestart.a */; };
+		477EB132D77246BC9BB995E7 /* libBugsnagReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F982CE2D1664A05835D3519 /* libBugsnagReactNative.a */; };
+		92014E869D56406DA69758E3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A955EE9B115A471DA819BEDA /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -266,6 +268,9 @@
 		90C926987D6F4ED291746C03 /* libjschelpers.a */ = {isa = PBXFileReference; name = "libjschelpers.a"; path = "libjschelpers.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		FE99EF1BC85742B8B8C235BF /* RCTRestart.xcodeproj */ = {isa = PBXFileReference; name = "RCTRestart.xcodeproj"; path = "../node_modules/react-native-restart/ios/RCTRestart.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		8E62D1F29F54487B91841C4A /* libRCTRestart.a */ = {isa = PBXFileReference; name = "libRCTRestart.a"; path = "libRCTRestart.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		F1DBCF7937BA4092A96B63D8 /* BugsnagReactNative.xcodeproj */ = {isa = PBXFileReference; name = "BugsnagReactNative.xcodeproj"; path = "../node_modules/bugsnag-react-native/cocoa/BugsnagReactNative.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		6F982CE2D1664A05835D3519 /* libBugsnagReactNative.a */ = {isa = PBXFileReference; name = "libBugsnagReactNative.a"; path = "libBugsnagReactNative.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		A955EE9B115A471DA819BEDA /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +302,8 @@
 				E891D6AA5AC94F229B8B7E62 /* libcxxreact.a in Frameworks */,
 				7C0CAA7FE2584EA9A74924F9 /* libjschelpers.a in Frameworks */,
 				C93B894D1EDE48BDA84D32FE /* libRCTRestart.a in Frameworks */,
+				477EB132D77246BC9BB995E7 /* libBugsnagReactNative.a in Frameworks */,
+				92014E869D56406DA69758E3 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +472,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				5E26FA86681E49398BAC493D /* RNI18n.xcodeproj */,
 				FE99EF1BC85742B8B8C235BF /* RCTRestart.xcodeproj */,
+				F1DBCF7937BA4092A96B63D8 /* BugsnagReactNative.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -485,6 +493,7 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* reactNativeReduxTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
+				22707B96B4914BE0B2EB2F14 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -500,6 +509,15 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		22707B96B4914BE0B2EB2F14 /* Frameworks */ = {
+			isa = "PBXGroup";
+			children = (
+				A955EE9B115A471DA819BEDA /* libz.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -997,11 +1015,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart",
+					"$(SRCROOT)/../node_modules/bugsnag-react-native/cocoa/**",
 				);
 			};
 			name = Debug;
@@ -1027,11 +1047,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart",
+					"$(SRCROOT)/../node_modules/bugsnag-react-native/cocoa/**",
 				);
 			};
 			name = Release;
@@ -1055,6 +1077,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart",
+					"$(SRCROOT)/../node_modules/bugsnag-react-native/cocoa/**",
 				);
 			};
 			name = Debug;
@@ -1077,6 +1100,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart",
+					"$(SRCROOT)/../node_modules/bugsnag-react-native/cocoa/**",
 				);
 			};
 			name = Release;
@@ -1111,11 +1135,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart",
+					"$(SRCROOT)/../node_modules/bugsnag-react-native/cocoa/**",
 				);
 			};
 			name = Debug;
@@ -1150,11 +1176,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart",
+					"$(SRCROOT)/../node_modules/bugsnag-react-native/cocoa/**",
 				);
 			};
 			name = Release;
@@ -1184,6 +1212,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -1208,6 +1237,7 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

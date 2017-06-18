@@ -6,8 +6,8 @@ import { detectLanguage } from '../actions/translation'
 import LanguagePicker from '../containers/LanguagePicker'
 import TextTranslate from './TextTranslate'
 
-const App = ({ currentLanguage, deviceLocale, isRTL, isFetching }) => {
-  if (isFetching) {
+const App = ({ currentLanguage, deviceLocale, isRTL, isFetching, isUpdating }) => {
+  if (isFetching || isUpdating) {
     return <Text>Loading...</Text>
   }
   return (
@@ -38,10 +38,11 @@ const App = ({ currentLanguage, deviceLocale, isRTL, isFetching }) => {
 }
 
 const mapState = (state) => ({
-  currentLanguage: state.translation.currentLanguage,
-  deviceLocale: state.translation.deviceLocale,
+  language: state.translation.language,
+  deviceLanguage: state.translation.deviceLanguage,
   isRTL: state.translation.isRTL,
-  isFetching: state.translation.isFetching
+  isFetching: state.translation.isFetching,
+  isUpdating: state.translation.isUpdating
 })
 
 App = connect(mapState)(App)

@@ -4,9 +4,8 @@ import { Picker, Text } from 'react-native'
 
 import { switchLanguage } from '../actions/translation'
 
-const LanguagePicker = ({ currentLanguage, languages, isFetching, isError, onSelectedLanguage }) => {
-  console.log(!isError , !currentLanguage , !languages)
-  if (isError || !currentLanguage || !languages) {
+const LanguagePicker = ({ language, languages, isFetching, isError, onSelectedLanguage }) => {
+  if (isError || !language || !languages) {
     return <Text>Something went wrong!</Text>
   }
   if (isFetching) {
@@ -24,7 +23,7 @@ const LanguagePicker = ({ currentLanguage, languages, isFetching, isError, onSel
 
   return (
     <Picker
-      selectedValue={ (currentLanguage || deviceLocale) }
+      selectedValue={ (language || deviceLocale) }
       onValueChange={ (item, index) => onSelectedLanguage(item) }
     >
       { languageItems }
@@ -33,7 +32,7 @@ const LanguagePicker = ({ currentLanguage, languages, isFetching, isError, onSel
 }
 
 const mapState = (state) => ({
-  currentLanguage: state.translation.currentLanguage || state.translation.deviceLocale,
+  language: state.translation.language || state.translation.deviceLanguage,
   languages: state.translation.languages,
   isFetching: state.translation.isFetching,
   isError: state.translation.isError
