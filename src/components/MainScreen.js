@@ -4,13 +4,13 @@ import { View } from 'react-native'
 import styles from '../styles'
 
 import AuthButton from './AuthButton'
-import LoginStatusMessage from './LoginStatusMessage'
+import MainContent from './MainContent'
 
 // Component
 // ___________________________________
 const MainScreen = () => (
   <View style={ styles.container }>
-    <LoginStatusMessage />
+    <MainContent />
   </View>
 )
 

@@ -2,12 +2,12 @@ import { StackNavigator } from 'react-navigation';
 
 import LoginScreen from '../components/LoginScreen'
 import MainScreen from '../components/MainScreen'
-import ProfileScreen from '../components/ProfileScreen'
+import DetailScreen from '../components/DetailScreen'
 
 const AppNavigator = StackNavigator({
   Login: { screen: LoginScreen },
   Main: { screen: MainScreen },
-  Profile: { screen: ProfileScreen },
+  Detail: { screen: DetailScreen },
 })
 
 export default AppNavigator

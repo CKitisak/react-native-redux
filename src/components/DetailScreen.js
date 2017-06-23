@@ -5,18 +5,18 @@ import styles from '../styles'
 
 // Component
 // ___________________________________
-const ProfileScreen = () => (
+const DetailScreen = () => (
   <View style={ styles.container }>
-    <Text style={ styles.titleText }>
-      Profile Screen
+    <Text>
+      some contents...
     </Text>
   </View>
 )
 
 // Screen Navigation Options
 // ___________________________________
-ProfileScreen.navigationOptions = {
-  title: 'Profile'
+DetailScreen.navigationOptions = {
+  title: 'Detail Screen'
 }
 
-export default ProfileScreen
+export default DetailScreen
