@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 import { updateSlider, updateSwitch } from './actions'
 
+import MyForm from './MyForm'
+
 const App = ({
   sliderValue,
   sliderIconMinValue,
@@ -72,6 +74,7 @@ const App = ({
         </Text>
       </View>
     </View>
+    <MyForm />
   </View>
 )
 

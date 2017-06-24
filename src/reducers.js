@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux'
+import { reducer as formReducer } from 'redux-form'
+
 import { UPDATE_SWITCH, UPDATE_SLIDER } from './actions'
 
 const initialState = {
@@ -28,7 +30,8 @@ const settings = (state = initialState, action) => {
 }
 
 const reducers = combineReducers({
-  settings
+  settings,
+  form: formReducer
 })
 
 export default reducers
