@@ -16,7 +16,7 @@ const App = ({
   dispatch
 }) => (
   <View style={{ padding: 25 }}>
-    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+    <View style={{ flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center' }}>
       <Text style={{ fontSize: 18 }}>
         Current Temperature:
       </Text>
