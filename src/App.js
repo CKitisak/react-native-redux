@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { updateSlider, updateSwitch } from './actions'
 
 import MyForm from './MyForm'
+import MyTimePicker from './MyTimePicker'
 
 const App = ({
   sliderValue,
@@ -74,6 +75,7 @@ const App = ({
         </Text>
       </View>
     </View>
+    <MyTimePicker />
     <MyForm />
   </View>
 )
