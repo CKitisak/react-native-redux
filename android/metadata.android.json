@@ -1,0 +1,8 @@
+{
+  "version": "0.0.1",
+  "minContainerVersion": "0.0.1",
+  "url": {
+    "url": "/sc_comfort/download/main.jsbundle",
+    "isRelative": true
+  }
+}
